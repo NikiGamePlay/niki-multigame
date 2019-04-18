@@ -36,7 +36,7 @@ script:
   - cd /home/travis/build/NikiGamePlay/niki-multigame
   - export CC=/usr/bin/gcc-7
   - export CXX=/usr/bin/g++-7
-  - gcc -v && g++ -v && /usr/local/bin/cmake --version
+  - gcc -v && g++ -v && cmake --version
   - mkdir build
   - cd build
   - cmake ..
