@@ -36,8 +36,9 @@ script:
   - cd /home/travis/build/NikiGamePlay/niki-multigame
   - export CC=/usr/bin/gcc-7
   - export CXX=/usr/bin/g++-7
+  - export CXXFLAGS="-std=c++17"
   - gcc -v && g++ -v && cmake --version
   - mkdir build
   - cd build
-  - cmake .. -DCMAKE_CXX_FLAGS="-std=c++17"
+  - cmake ..
   - make
