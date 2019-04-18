@@ -20,11 +20,13 @@ script:
   - echo "Installing SFML..."
   - pwd
   - ls
-  - wget https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip
-  - unzip SFML-2.5.1-sources.zip > sfml-downloadlog
+#  - wget https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip
+#  - unzip SFML-2.5.1-sources.zip > sfml-downloadlog
+  - git clone https://github.com/SFML/SFML.git
   - pwd
   - ls
-  - cd SFML-2.5.1
+  - cd SFML
+  - git checkout tags/2.5.1
   - mkdir build/
   - cd build
   - cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=TRUE .. > install.log
