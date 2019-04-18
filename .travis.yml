@@ -18,22 +18,26 @@ addons:
       - libfreetype6-dev
       - libvorbis-dev
       - libflac-dev
-      - libsfml-dev
-install:
-  - git clone https://github.com/SFML/SFML.git
-  - cd SFML
-  - git checkout tags/2.5.1
-  - mkdir install
+script:
+  - echo "Installing SFML..."
+  - pwd
+  - ls
+  - wget https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip
+  - unzip SFML-2.5.1-sources.zip > sfml-downloadlog
+  - pwd
+  - ls
+  - cd SFML-2.5.1
+  - mkdir build/
+  - cd build
+  - cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=TRUE .. > install.log
+  - make >> install.log
+  - sudo make install >> install.log
+  - sudo ldconfig
+  - cd /home/travis/build/NikiGamePlay/niki-multigame
+  - export CC=/usr/bin/gcc-7
+  - export CXX=/usr/bin/g++-7
+  - gcc -v && g++ -v && /usr/local/bin/cmake --version
   - mkdir build
   - cd build
-  - cmake -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_INSTALL_FRAMEWORK_PREFIX=../install -DSFML_BUILD_FRAMEWORKS=FALSE -DBUILD_SHARED_LIBS=TRUE ..
+  - cmake ..
   - make
-  - make install
-  - cd ../../
-
-script:
-  - mkdir install
-  - mkdir install/nikimultigame
-  - cmake -DCMAKE_INSTALL_PREFIX=./install/nikimultigame -DSFML_DIR=./SFML/install -DCMAKE_MODULE_PATH=./SFML/cmake/Modules .
-  - make
-  - make install
