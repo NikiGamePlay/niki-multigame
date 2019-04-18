@@ -40,6 +40,16 @@ BepisClickerGame::BepisClickerGame(sf::RenderWindow& window, Resources* res) : r
 
 		clickButton = _clickButton;
 	}
+
+	{
+		sf::Text _clickButtonLabel((const std::string)"GIVE MORE!", resources->GetFontStorage().GetRobotoRegular(), 32);
+
+		_clickButtonLabel.setFillColor(sf::Color::White);
+
+		ElementUtil::centerTextInsideShapeHorizontal(&_clickButtonLabel, &clickButton);
+
+		clickButtonLabel = _clickButtonLabel;
+	}
 }
 
 void BepisClickerGame::run() {
@@ -74,6 +84,7 @@ void BepisClickerGame::mainLoop() {
 		renderWindow.draw(clicksLabel);
 		renderWindow.draw(clicksCounterLabel);
 		renderWindow.draw(clickButton);
+		renderWindow.draw(clickButtonLabel);
 		renderWindow.display();
 	}
 }

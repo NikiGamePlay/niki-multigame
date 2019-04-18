@@ -12,6 +12,7 @@ private:
 	Resources* resources;
 
 	sf::RectangleShape clickButton;
+	sf::Text clickButtonLabel;
 
 	sf::Text clicksLabel;
 	sf::Text clicksCounterLabel;
