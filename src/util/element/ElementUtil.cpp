@@ -1,5 +1,6 @@
 #include "ElementUtil.hpp"
 #include "util/Defines.hpp"
+#include <cmath>
 
 void ElementUtil::centerShapeHorizontal(sf::Shape* element) {
 	sf::Vector2f currentPosition = element->getPosition();
