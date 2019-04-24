@@ -2,19 +2,16 @@ cmake_minimum_required(VERSION 3.1)
 
 project(nikimultigame)
 
-## If you want to link SFML statically
-## set(SFML_STATIC_LIBRARIES TRUE)
-
 list(APPEND myApp_sources
-    main.cpp 
-    util/element/ElementUtil.cpp
-    util/resources/Resources.cpp
-    util/resources/fonts/FontStorage.cpp
-    mainmenu/MainMenu.cpp
-    bepis_game/BepisClickerGame.cpp
-    tictactoe_game/TicTacToeGame.cpp
+    ${CMAKE_SOURCE_DIR}/main.cpp 
+    ${CMAKE_SOURCE_DIR}/util/element/ElementUtil.cpp
+    ${CMAKE_SOURCE_DIR}/util/resources/Resources.cpp
+    ${CMAKE_SOURCE_DIR}/util/resources/fonts/FontStorage.cpp
+    ${CMAKE_SOURCE_DIR}/mainmenu/MainMenu.cpp
+    ${CMAKE_SOURCE_DIR}/bepis_game/BepisClickerGame.cpp
+    ${CMAKE_SOURCE_DIR}/tictactoe_game/TicTacToeGame.cpp
 )
-include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR})
 find_package(SFML 2.5.1 COMPONENTS graphics window REQUIRED)
 add_executable(nikimultigame ${myApp_sources})
 
